@@ -47,4 +47,5 @@ group :development do
   # gem "spring"
 end
 gem 'rack-cors'
+gem 'rspec-rails', '~> 5.0'
 gem 'rubocop', '>= 1.0', '< 2.0'
