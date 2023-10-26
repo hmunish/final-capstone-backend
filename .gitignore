@@ -29,5 +29,3 @@
 /config/master.key
 
 node_modules/
-
-/config/database.yml
