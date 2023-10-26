@@ -4,7 +4,6 @@ class Reservation < ApplicationRecord
 
   # Validations
 
-  validates :location, presence: :true
-  validates :date, presence: :true
-
+  validates :location, presence: true
+  validates :date, presence: true
 end

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :reservations
 
 
-  # Validations 
+  # Validations
 
-  validates :username, presence: :true
+  validates :username, presence: true
 end
