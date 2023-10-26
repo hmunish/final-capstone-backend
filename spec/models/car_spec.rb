@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Car, type: :model do
   it 'is valid with all required attributes' do
     user = User.create(username: 'testuser')
-    car = Car.new(
+    car = user.cars.create(
       name: 'Car 1',
       image: 'car_image.jpg',
       description: 'A nice car',
@@ -11,8 +11,7 @@ RSpec.describe Car, type: :model do
       finance_fee: 500.0,
       option_to_purchase_fee: 200.0,
       total_amount_payable: 15_000.0,
-      duration: 36,
-      user_id: user.id
+      duration: 36
     )
     expect(car).to be_valid
   end
