@@ -22,9 +22,9 @@ class Api::V1::CarsController < ApplicationController
 
   def update
     if @car.update
-        render json: @car, status: :update
+      render json: @car, status: :update
     else
-        render @car.errors, status: :uprocessable_entity
+      render @car.errors, status: :uprocessable_entity
     end
   end
 
