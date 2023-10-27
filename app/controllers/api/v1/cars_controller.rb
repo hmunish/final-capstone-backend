@@ -20,6 +20,19 @@ class Api::V1::CarsController < ApplicationController
     end
   end
 
+  def update
+    if @car.update
+        render json: @car, status: :update
+    else
+        render @car.errors, status: :uprocessable_entity
+    end
+  end
+
+  def destroy
+    @car.destroy
+    head :no_content
+  end
+
   private
 
   def set_car
