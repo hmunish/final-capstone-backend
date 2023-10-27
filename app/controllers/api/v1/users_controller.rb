@@ -1,4 +1,5 @@
 class Api::V1::UsersController < ApplicationController
+  before_action :authenticate
   before_action :set_user, only: %i[show update destroy]
 
   def index
@@ -16,10 +17,13 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(username: params[:username])
+    @user = User.new(user_params)
 
     if @user.save
-      render json: @user, status: :created
+      payload = { user_id: @user.id }
+      token = create_token(payload)
+      response.headers['Authorization'] = "Bearer #{token}"
+      render json: @user, status: :created, location: api_v1_user_url(@user)
     else
       render json: @user.errors, status: :unprocessable_entity
     end
@@ -37,15 +41,6 @@ class Api::V1::UsersController < ApplicationController
     @user.destroy
     head :no_content
   end
-
-  # def authenticate
-  #   @user = User.find_by(username: params[:username])
-  #   if @user
-  #     render json: { message: "Authentication successful"}, status: :ok
-  #   else
-  #     render json: { message: "Invalid Username"}, status: :unauthorized
-  #   end
-  # end
 
   private
 
