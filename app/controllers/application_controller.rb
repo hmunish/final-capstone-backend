@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
   def authenticate
     if request.headers['Authorization']
       begin
-        token = request.headers['Authorization'].split(" ").last
+        token = request.headers['Authorization'].split.last
         decoded_token = JWT.decode(token, secret)
         payload = decoded_token.first
         user_id = payload['user_id']
