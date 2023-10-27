@@ -42,6 +42,15 @@ class Api::V1::UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:username)
     end
+
+    def authenticate
+      user = User.find_by(user_params)
+      if user
+        render json: { message: "Authentication successful"}, status: :ok 
+      else
+        render json: { message: "Invalid Username"}, status: :unauthorized
+      end
+    end
 end
 # def index
 #   @user = User.find_by(username: 'testUser2')
