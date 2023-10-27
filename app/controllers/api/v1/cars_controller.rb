@@ -1,5 +1,5 @@
 class Api::V1::CarsController < ApplicationController
-  before_action :set_user, only: %i[show]
+  before_action :set_car, only: %i[show update destroy]
 
   def index
     @cars = Car.all
@@ -11,6 +11,7 @@ class Api::V1::CarsController < ApplicationController
   end
 
   def create
+    current_user = User.find(params[:user_id])
     @car = current_user.cars.new(car_params)
     if @car.save
       render json: @car, status: :created
@@ -19,14 +20,22 @@ class Api::V1::CarsController < ApplicationController
     end
   end
 
-
   private
 
-  def set_user
+  def set_car
     @car = Car.find(params[:id])
   end
 
   def car_params
-    params.require(:car).permit(:name, :image, :description, :deposit, :finance_fee, :option_to_purchase_fee, :total_amount_payable, :duration)
+    params.permit(
+      :name,
+      :image,
+      :description,
+      :deposit,
+      :finance_fee,
+      :option_to_purchase_fee,
+      :total_amount_payable,
+      :duration
+    )
   end
 end
