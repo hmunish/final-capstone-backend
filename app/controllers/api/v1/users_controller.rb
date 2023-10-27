@@ -3,7 +3,12 @@ class Api::V1::UsersController < ApplicationController
 
     def index
       @users = User.all
-      render json: @users
+
+      if @users
+        render json: { status: { code: 200, message: 'signed in successfuly', data: @user }}, status: :ok
+      else
+              render json: { error: 'Users not found' }, status: :not_found
+      end
     end
 
     def show
@@ -11,7 +16,7 @@ class Api::V1::UsersController < ApplicationController
     end
 
     def create
-      @user = User.new(user_params)
+      @user = User.new(username: params[:username])
 
       if @user.save
         render json: @user, status: :created
@@ -33,6 +38,15 @@ class Api::V1::UsersController < ApplicationController
       head :no_content
     end
 
+    # def authenticate
+    #   @user = User.find_by(username: params[:username])
+    #   if @user
+    #     render json: { message: "Authentication successful"}, status: :ok 
+    #   else
+    #     render json: { message: "Invalid Username"}, status: :unauthorized
+    #   end
+    # end
+
     private
 
     def set_user
@@ -43,15 +57,8 @@ class Api::V1::UsersController < ApplicationController
       params.require(:user).permit(:username)
     end
 
-    def authenticate
-      user = User.find_by(user_params)
-      if user
-        render json: { message: "Authentication successful"}, status: :ok 
-      else
-        render json: { message: "Invalid Username"}, status: :unauthorized
-      end
-    end
 end
+
 # def index
 #   @user = User.find_by(username: 'testUser2')
 #   # @user = User.find_by(name: user_params[:name])
