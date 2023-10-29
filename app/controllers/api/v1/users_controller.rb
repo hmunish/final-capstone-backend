@@ -1,67 +1,54 @@
 class Api::V1::UsersController < ApplicationController
-  def index
-    @user = User.find_by(username: 'testUser2')
-    # @user = User.find_by(name: user_params[:name])
+  before_action :authenticate
+  before_action :set_user, only: %i[show update destroy]
 
-    if @user
-      render json: {
-        status: { code: 200, message: 'signed in successfuly', data: @user }
-      }, status: :ok
+  def index
+    @users = User.all
+
+    if @users
+      render json: { status: { code: 200, message: 'signed in successfuly', data: @users } }, status: :ok
     else
-      render json: { error: 'User not found' }, status: :not_found
+      render json: { error: 'Users not found' }, status: :not_found
     end
+  end
+
+  def show
+    render json: @user
+  end
+
+  def create
+    @user = User.new(user_params)
+
+    if @user.save
+      payload = { user_id: @user.id }
+      token = create_token(payload)
+      response.headers['Authorization'] = "Bearer #{token}"
+      render json: @user, status: :created, location: api_v1_user_url(@user)
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @user.update(user_params)
+      render json: @user
+    else
+      render json: @user.errors, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @user.destroy
+    head :no_content
   end
 
   private
 
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:username)
   end
 end
-
-# Code to be used in future
-
-# before_action :set_user, only: [:show, :update, :destroy]
-
-#     def index
-#       @users = User.all
-#       render json: @users
-#     end
-
-#     def show
-#       render json: @user
-#     end
-
-#     def create
-#       @user = User.new(user_params)
-
-#       if @user.save
-#         render json: @user, status: :created
-#       else
-#         render json: @user.errors, status: :unprocessable_entity
-#       end
-#     end
-
-#     def update
-#       if @user.update(user_params)
-#         render json: @user
-#       else
-#         render json: @user.errors, status: :unprocessable_entity
-#       end
-#     end
-
-#     def destroy
-#       @user.destroy
-#       head :no_content
-#     end
-
-#     private
-
-#     def set_user
-#       @user = User.find(params[:id])
-#     end
-
-#     def user_params
-#       params.require(:user).permit(:username)
-#     end
-#   end
