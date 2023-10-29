@@ -6,7 +6,7 @@ class Api::V1::UsersController < ApplicationController
     @users = User.all
 
     if @users
-      render json: { status: { code: 200, message: 'signed in successfuly', data: @user } }, status: :ok
+      render json: { status: { code: 200, message: 'signed in successfuly', data: @users } }, status: :ok
     else
       render json: { error: 'Users not found' }, status: :not_found
     end
