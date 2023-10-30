@@ -21,4 +21,8 @@ class Api::V1::ReservationsController < ApplicationController
         render json: @reservation.errors, status: :unprocessable_entity
     end
   end
+  def destroy
+    @reservation.destroy
+    head :no_content
+  end
 end
