@@ -14,7 +14,7 @@ module Api
             token:
           }
         else
-          render json: { message: 'Could not find user' }
+          render json: { message: 'Could not find user' }, status: :forbidden
         end
       end
 
