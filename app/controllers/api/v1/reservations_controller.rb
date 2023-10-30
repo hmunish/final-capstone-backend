@@ -12,4 +12,13 @@ class Api::V1::ReservationsController < ApplicationController
   def show
     render json: @reservation
   end
+  def create
+    current_user = User.find(params[:user_id])
+    @reservation = current_user.reservations.new(reservation_params)
+    if @reservation.save
+        render json: @reservation, status: :created
+    else
+        render json: @reservation.errors, status: :unprocessable_entity
+    end
+  end
 end
