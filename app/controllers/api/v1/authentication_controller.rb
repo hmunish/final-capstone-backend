@@ -6,7 +6,7 @@ module Api
       def login
         @user = User.find_by(username: params[:username])
         if @user
-          payload = { user_id: @user.id }
+          payload = { user_id: @user.id, username: @user.username }
           ENV['SECRET_KEY_BASE'] || Rails.application.secrets.secret_key_base
           token = create_token(payload)
           render json: {
