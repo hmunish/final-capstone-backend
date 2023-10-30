@@ -9,4 +9,7 @@ class Api::V1::ReservationsController < ApplicationController
       render json: { error: 'Reservations not found.' }, status: :not_found
     end
   end
+  def show
+    render json: @reservation
+  end
 end
