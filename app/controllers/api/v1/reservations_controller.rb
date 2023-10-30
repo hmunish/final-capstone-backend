@@ -30,4 +30,7 @@ class Api::V1::ReservationsController < ApplicationController
   def set_reservation
     @reservation = Reservation.find(params[:id])
   end
+  def reservation_params
+    params.permit(:location, :date, :car_id)
+  end
 end
