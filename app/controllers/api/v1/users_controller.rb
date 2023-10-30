@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :authenticate
+  skip_before_action :authenticate, only: [:create]
   before_action :set_user, only: %i[show update destroy]
 
   def index
