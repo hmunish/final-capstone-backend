@@ -25,4 +25,9 @@ class Api::V1::ReservationsController < ApplicationController
     @reservation.destroy
     head :no_content
   end
+  private
+
+  def set_reservation
+    @reservation = Reservation.find(params[:id])
+  end
 end
