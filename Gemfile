@@ -49,4 +49,5 @@ end
 gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 gem 'rspec-rails', '~> 5.0'
+gem 'rswag'
 gem 'rubocop', '>= 1.0', '< 2.0'
