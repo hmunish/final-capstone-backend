@@ -1,0 +1,223 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/login":
+    post:
+      summary: Log in a user
+      tags:
+      - Authentication
+      parameters: []
+      responses:
+        '200':
+          description: user logged in
+        '401':
+          description: unauthorized
+  "/api/v1/users/{user_id}/cars":
+    get:
+      summary: Retrieves a list of cars for a user
+      tags:
+      - Cars
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: cars found
+    post:
+      summary: Creates a new car for a user
+      tags:
+      - Cars
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: car created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                image:
+                  type: string
+                description:
+                  type: string
+                deposit:
+                  type: number
+                  format: float
+                finance_fee:
+                  type: number
+                  format: float
+                option_to_purchase_fee:
+                  type: number
+                  format: float
+                total_amount_payable:
+                  type: number
+                  format: float
+                duration:
+                  type: integer
+              required:
+              - name
+              - image
+              - description
+              - deposit
+              - finance_fee
+              - option_to_purchase_fee
+              - total_amount_payable
+              - duration
+  "/api/v1/users/{user_id}/cars/{id}":
+    put:
+      summary: Updates an existing car for a user
+      tags:
+      - Cars
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: car updated
+        '404':
+          description: car not found
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                image:
+                  type: string
+                description:
+                  type: string
+                deposit:
+                  type: number
+                  format: float
+                finance_fee:
+                  type: number
+                  format: float
+                option_to_purchase_fee:
+                  type: number
+                  format: float
+                total_amount_payable:
+                  type: number
+                  format: float
+                duration:
+                  type: integer
+    delete:
+      summary: Deletes an existing car for a user
+      tags:
+      - Cars
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: car deleted
+        '404':
+          description: car not found
+  "/api/v1/users":
+    get:
+      summary: Retrieves a list of users
+      tags:
+      - Users
+      responses:
+        '200':
+          description: users found
+    post:
+      summary: Creates a new user
+      tags:
+      - Users
+      parameters: []
+      responses:
+        '201':
+          description: user created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+              required:
+              - username
+    put:
+      summary: Updates an existing user
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: user updated
+        '404':
+          description: user not found
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+    delete:
+      summary: Deletes an existing user
+      tags:
+      - Users
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: user deleted
+        '404':
+          description: user not found
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
