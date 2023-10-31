@@ -15,6 +15,139 @@ paths:
           description: user logged in
         '401':
           description: unauthorized
+  "/api/v1/users/{user_id}/cars":
+    get:
+      summary: Retrieves a list of cars for a user
+      tags:
+      - Cars
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: cars found
+    post:
+      summary: Creates a new car for a user
+      tags:
+      - Cars
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '201':
+          description: car created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                image:
+                  type: string
+                description:
+                  type: string
+                deposit:
+                  type: number
+                  format: float
+                finance_fee:
+                  type: number
+                  format: float
+                option_to_purchase_fee:
+                  type: number
+                  format: float
+                total_amount_payable:
+                  type: number
+                  format: float
+                duration:
+                  type: integer
+              required:
+              - name
+              - image
+              - description
+              - deposit
+              - finance_fee
+              - option_to_purchase_fee
+              - total_amount_payable
+              - duration
+  "/api/v1/users/{user_id}/cars/{id}":
+    put:
+      summary: Updates an existing car for a user
+      tags:
+      - Cars
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: car updated
+        '404':
+          description: car not found
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                image:
+                  type: string
+                description:
+                  type: string
+                deposit:
+                  type: number
+                  format: float
+                finance_fee:
+                  type: number
+                  format: float
+                option_to_purchase_fee:
+                  type: number
+                  format: float
+                total_amount_payable:
+                  type: number
+                  format: float
+                duration:
+                  type: integer
+    delete:
+      summary: Deletes an existing car for a user
+      tags:
+      - Cars
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: car deleted
+        '404':
+          description: car not found
   "/api/v1/users":
     get:
       summary: Retrieves a list of users
