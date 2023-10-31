@@ -25,5 +25,4 @@ describe 'Authentication API' do
       end
     end
   end
-
 end

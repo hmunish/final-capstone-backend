@@ -28,18 +28,24 @@ describe 'Cars API' do
           total_amount_payable: { type: :number, format: :float },
           duration: { type: :integer }
         },
-        required: ['name', 'image', 'description', 'deposit', 'finance_fee', 'option_to_purchase_fee', 'total_amount_payable', 'duration']
+        required: %w[name image description deposit finance_fee option_to_purchase_fee total_amount_payable duration]
       }
 
       response '201', 'car created' do
         let(:user_id) { create(:user).id }
-        let(:car) { { name: 'CarName', image: 'car.jpg', description: 'Car description', deposit: 1000.0, finance_fee: 500.0, option_to_purchase_fee: 200.0, total_amount_payable: 8000.0, duration: 36 } }
+        let(:car) do
+          { name: 'CarName', image: 'car.jpg', description: 'Car description', deposit: 1000.0, finance_fee: 500.0, option_to_purchase_fee: 200.0,
+            total_amount_payable: 8000.0, duration: 36 }
+        end
         run_test!
       end
 
       response '422', 'invalid request' do
         let(:user_id) { create(:user).id }
-        let(:car) { { name: nil, image: 'car.jpg', description: 'Car description', deposit: 1000.0, finance_fee: 500.0, option_to_purchase_fee: 200.0, total_amount_payable: 8000.0, duration: 36 } }
+        let(:car) do
+          { name: nil, image: 'car.jpg', description: 'Car description', deposit: 1000.0, finance_fee: 500.0, option_to_purchase_fee: 200.0,
+            total_amount_payable: 8000.0, duration: 36 }
+        end
         run_test!
       end
     end
@@ -67,7 +73,7 @@ describe 'Cars API' do
 
       response '200', 'car updated' do
         let(:user_id) { create(:user).id }
-        let(:id) { create(:car, user_id: user_id).id }
+        let(:id) { create(:car, user_id:).id }
         let(:car) { { name: 'UpdatedCarName' } }
         run_test!
       end
@@ -80,7 +86,7 @@ describe 'Cars API' do
 
       response '422', 'invalid request' do
         let(:user_id) { create(:user).id }
-        let(:id) { create(:car, user_id: user_id).id }
+        let(:id) { create(:car, user_id:).id }
         let(:car) { { name: nil } }
         run_test!
       end
@@ -94,7 +100,7 @@ describe 'Cars API' do
 
       response '204', 'car deleted' do
         let(:user_id) { create(:user).id }
-        let(:id) { create(:car, user_id: user_id).id }
+        let(:id) { create(:car, user_id:).id }
         run_test!
       end
 
