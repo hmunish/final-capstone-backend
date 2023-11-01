@@ -3,7 +3,7 @@ class Api::V1::UsersController < ApplicationController
   before_action :set_user, only: %i[show update destroy]
 
   def index
-    @users = User.all
+    @users = User.includes(:cars, :reservations).all
 
     if @users
       render json: { status: { code: 200, message: 'signed in successfuly', data: @users } }, status: :ok
