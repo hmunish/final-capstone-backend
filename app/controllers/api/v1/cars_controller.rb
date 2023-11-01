@@ -3,7 +3,7 @@ class Api::V1::CarsController < ApplicationController
   before_action :authenticate, only: %i[index show create destroy]
 
   def index
-    @cars = Car.all
+    @cars = Car.includes(:user, :reservations).all
     render json: @cars
   end
 

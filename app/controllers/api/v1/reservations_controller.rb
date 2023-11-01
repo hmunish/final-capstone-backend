@@ -4,7 +4,7 @@ class Api::V1::ReservationsController < ApplicationController
 
   def index
     current_user = User.find(params[:user_id])
-    @reservations = current_user.reservations.order(created_at: :desc).all
+    @reservations = current_user.reservations.includes(:user, :car).order(created_at: :desc).all
     if @reservations
       render json: { status: { code: 200, message: 'Reservations retrieved successfully.', data: @reservations } }, status: :ok
     else
@@ -23,6 +23,14 @@ class Api::V1::ReservationsController < ApplicationController
       render json: @reservation, status: :created
     else
       render json: @reservation.errors, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @reservation.update(reservation_params)
+      render json: @reservation, status: :ok
+    else
+      render json: @reservation.errors, status: :uprocessable_entity
     end
   end
 
