@@ -91,7 +91,11 @@ describe 'Reservations API' do
             car_id: { type: :string }
           }
         }
-        response '200', 'update successful' do
+        response '200', 'Update successful' do
+          let(:user_id) { create(:user).id }
+          let(:id) { create(:reservation, user: User.find(:user_id).id) }
+          let(:reservation) { { location: 'New location', date: '2023-11-01', car_id: create(:car).id } }
+          run_test!
         end
         response '404', 'User not found' do
           let(:user_id) { 'nil' }
