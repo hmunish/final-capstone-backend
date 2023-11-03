@@ -179,27 +179,26 @@ rails s
 
 👤 **Abdourahmane Jalloh**
 
-- GitHub: []()
-- LinkedIn: [LinkedIn]()
+- GitHub: [aradradev](https://github.com/aradradev)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdul-jalloh)
 
 
-👤 **Author name**
+👤 **Faranosh Amini**
 
-- GitHub: []()
-- LinkedIn: [LinkedIn]()
-
-
-👤 **Author name**
-
-- GitHub: []()
-- LinkedIn: [LinkedIn]()
+- GitHub: [FaranoshAmini](https://github.com/FaranoshAmini)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/faranosh-amini-9b925b23a/)
 
 
-👤 **Author name**
+👤 **Munish Halai**
 
-- GitHub: []()
-- Twitter: []()
-- LinkedIn: [LinkedIn]()
+- GitHub: [hmunish](https://github.com/hmunish)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/munish-halai/)
+
+
+👤 **Sunga Thawethe**
+
+- GitHub: [sunga12](https://github.com/sunga12)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/sungabanja-thawethe/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -246,10 +245,10 @@ If you found this project helpful, consider giving a ⭐️!
 We would like to express our deepest gratitude to all the people and institutions that have contributed to make this project possible.
 
 #### Development Team
-- **Name 1**:
-- **Name 2**: 
-- **Name 3**: 
-- **Name 4**: 
+- **Abdourahmane Jalloh**:
+- **Faranosh Amini**: 
+- **Munish Halai3**: 
+- **Sunga Thawethe**: 
 
 #### Institution
 - **Microverse**: My sincerest thanks for creating this bootcamp. The program's structure and the quality of education provided have been crucial for my growth as a developer.
