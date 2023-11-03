@@ -245,10 +245,12 @@ If you found this project helpful, consider giving a ⭐️!
 We would like to express our deepest gratitude to all the people and institutions that have contributed to make this project possible.
 
 #### Development Team
-- **Abdourahmane Jalloh**:
-- **Faranosh Amini**: 
-- **Munish Halai3**: 
-- **Sunga Thawethe**: 
+- **Abdourahmane Jalloh**: Thank you for your dedication and hard work throughout this project.
+- **Faranosh Amini**: Your expertise and commitment have been invaluable to the team.
+- **Munish Halai3**: Your contributions have made a significant impact on our success.
+- **Sunga Thawethe**: Your skills and teamwork have been much appreciated.
+
+Thank you, team, for your collaboration and effort! 🙌🏼🚀
 
 #### Institution
 - **Microverse**: My sincerest thanks for creating this bootcamp. The program's structure and the quality of education provided have been crucial for my growth as a developer.
@@ -263,6 +265,6 @@ We would like to express our deepest gratitude to all the people and institution
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](../LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
