@@ -4,7 +4,7 @@
 
 <div align="center">
 <h2>ER Diagrma</h2>
-<img width="741" alt="Screenshot 2023-09-25 at 12 07 22" src="">
+<img width="741" alt="Screenshot 2023-09-25 at 12 07 22" src="./ER Diagram Final capstone.PNG">
 
 </div>
 
@@ -177,7 +177,7 @@ rails s
 
 ## 👥 Authors <a name="authors"></a>
 
-👤 **Author name**
+👤 **Abdourahmane Jalloh**
 
 - GitHub: []()
 - LinkedIn: [LinkedIn]()
