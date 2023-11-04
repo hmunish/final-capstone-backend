@@ -8,7 +8,7 @@
 
 </div>
 
-# 📗 Table of Contents 
+# 📗 Table of Contents
 
 - [Final group capstone - Book an Appointment For Renting Car](#final-group-capstone---book-an-appointment-for-renting-car)
 - [📗 Table of Contents](#-table-of-contents)
@@ -30,9 +30,9 @@
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
   - [🙏 Acknowledgments ](#-acknowledgments-)
-      - [Development Team](#development-team)
-      - [Institution](#institution)
-      - [Reference Design](#reference-design)
+    - [Development Team](#development-team)
+    - [Institution](#institution)
+    - [Reference Design](#reference-design)
   - [📝 License ](#-license-)
 
 <!-- PROJECT DESCRIPTION -->
@@ -41,9 +41,10 @@
 
 **[Description]**
 
-The project we built for the Final Project is based on an app to book an appointment for the best car in the world. 
+The project we built for the Final Project is based on an app to book an appointment for the best car in the world.
 
 ## 🚀 Frontend App <a name="frontend"></a>
+
 - [Click here to navigate to the Frontend ](https://github.com/hmunish/final-capstone-frontend)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -69,7 +70,7 @@ The project we built for the Final Project is based on an app to book an appoint
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](Live here...) 
+- [Live Demo Link](https://car-booking-frontend.onrender.com/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -91,6 +92,7 @@ git clone https://github.com/hmunish/final-capstone-backend.git
 cd final-capstone-backend
 bundle install
 ```
+
 ```
 git clone https://github.com/hmunish/final-capstone-frontend.git
 cd final-capstone-frontend
@@ -101,36 +103,40 @@ npm install
 
 In the project directory, run the first time:
 
-  ```
-  bundle exec rake assets:precompile
-  ```
+```
+bundle exec rake assets:precompile
+```
 
 then, you can use:
 
-  ```
-  ./bin/dev
-  ```
+```
+./bin/dev
+```
 
 or:
 
-  ```
-  rails s
-  ```
+```
+rails s
+```
 
 Check on db/seed.rb for pre-loaded users, groups and, spendings, and likes for development
 
 ### Run tests
+
 In the project directory, run the first time:
 
-  ```
-  bundle exec rake assets:precompile
-  ```
+```
+bundle exec rake assets:precompile
+```
+
 then, you can:
 
-  ```
-  rspec .
-  ```
+```
+rspec .
+```
+
 however, if you haven't run
+
 ```
 ./bin/dev
 ```
@@ -144,16 +150,17 @@ To configure the database connection in Rails, you need to update the database.y
 2. Find the default: &default section in the file.
 
 3. Add the following lines under the default: &default section:
+
 ```
   host: localhost
   username: your_username
   password: your_password
 ```
- 
 
 4. Replace your_username with your actual database username and your_password with your actual database password.
 5. Save the changes to the database.yml file.
 6. Run
+
 ```
 rails db:create
 ```
@@ -170,7 +177,6 @@ rails db:seed
 rails s
 ```
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- AUTHORS -->
@@ -182,18 +188,15 @@ rails s
 - GitHub: [aradradev](https://github.com/aradradev)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdul-jalloh)
 
-
 👤 **Faranosh Amini**
 
 - GitHub: [FaranoshAmini](https://github.com/FaranoshAmini)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/faranosh-amini-9b925b23a/)
 
-
 👤 **Munish Halai**
 
 - GitHub: [hmunish](https://github.com/hmunish)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/munish-halai/)
-
 
 👤 **Sunga Thawethe**
 
@@ -245,6 +248,7 @@ If you found this project helpful, consider giving a ⭐️!
 We would like to express our deepest gratitude to all the people and institutions that have contributed to make this project possible.
 
 #### Development Team
+
 - **Abdourahmane Jalloh**: Thank you for your dedication and hard work throughout this project.
 - **Faranosh Amini**: Your expertise and commitment have been invaluable to the team.
 - **Munish Halai3**: Your contributions have made a significant impact on our success.
@@ -253,11 +257,12 @@ We would like to express our deepest gratitude to all the people and institution
 Thank you, team, for your collaboration and effort! 🙌🏼🚀
 
 #### Institution
+
 - **Microverse**: My sincerest thanks for creating this bootcamp. The program's structure and the quality of education provided have been crucial for my growth as a developer.
 
 #### Reference Design
-- I would also like to thank [<a href="https://www.behance.net/muratk">Murat Korkmaz</a>] for the original design on Behance that served as inspiration for this project.
 
+- I would also like to thank [<a href="https://www.behance.net/muratk">Murat Korkmaz</a>] for the original design on Behance that served as inspiration for this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
