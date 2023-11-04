@@ -8,6 +8,8 @@ class ApplicationController < ActionController::API
         payload = decoded_token.first
         user_id = payload['user_id']
         @user = User.find(user_id)
+      rescue StandardError => e
+        render json: { message: "Error: #{e}" }, status: :forbidden
       end
     else
       render json: { message: 'No Authorization header sent' }, status: :forbidden
