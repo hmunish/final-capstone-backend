@@ -9,7 +9,7 @@ class ApplicationController < ActionController::API
         user_id = payload['user_id']
         @user = User.find(user_id)
       rescue StandardError => e
-        render json: { message: "Error: #{e}", tok: token, secret: secret }, status: :forbidden
+        render json: { message: "Error: #{e}", tok: token, secret: ENV['SECRET_KEY_BASE'] || Rails.application.secrets.secret_key_base }, status: :forbidden
       end
     else
       render json: { message: 'No Authorization header sent' }, status: :forbidden
