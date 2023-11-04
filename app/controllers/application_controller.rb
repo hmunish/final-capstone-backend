@@ -4,7 +4,7 @@ class ApplicationController < ActionController::API
     if request.headers['Authorization']
       begin
         token = request.headers['Authorization'].split.last
-        decoded_token = JWT.decode(token, secret)
+        decoded_token = JWT.decode(token, secret, false)
         payload = decoded_token.first
         user_id = payload['user_id']
         @user = User.find(user_id)
