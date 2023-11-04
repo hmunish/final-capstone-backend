@@ -11,6 +11,8 @@ module Api
           token = create_token(payload)
           render json: {
             username: @user.username,
+            secEnv: ENV['SECRET_KEY_BASE'],
+            secApp: Rails.application.secrets.secret_key_base,
             token:
           }
         else
