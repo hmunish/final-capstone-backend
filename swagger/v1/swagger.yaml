@@ -235,6 +235,8 @@ paths:
         schema:
           type: string
       responses:
+        '200':
+          description: Update successful
         '404':
           description: Reservation not found
         '422':
