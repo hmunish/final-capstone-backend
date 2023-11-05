@@ -30,9 +30,9 @@
   - [🤝 Contributing ](#-contributing-)
   - [⭐️ Show your support ](#️-show-your-support-)
   - [🙏 Acknowledgments ](#-acknowledgments-)
-    - [Development Team](#development-team)
-    - [Institution](#institution)
-    - [Reference Design](#reference-design)
+      - [Development Team](#development-team)
+      - [Institution](#institution)
+      - [Reference Design](#reference-design)
   - [📝 License ](#-license-)
 
 <!-- PROJECT DESCRIPTION -->
@@ -102,18 +102,10 @@ npm install
 ### Usage
 
 In the project directory, run the first time:
-
+To test the Rspec::swagger
 ```
-bundle exec rake assets:precompile
+rake rswag:specs:swaggerize
 ```
-
-then, you can use:
-
-```
-./bin/dev
-```
-
-or:
 
 ```
 rails s
@@ -123,22 +115,10 @@ Check on db/seed.rb for pre-loaded users, groups and, spendings, and likes for d
 
 ### Run tests
 
-In the project directory, run the first time:
+In the project directory, run the first time
 
 ```
-bundle exec rake assets:precompile
-```
-
-then, you can:
-
-```
-rspec .
-```
-
-however, if you haven't run
-
-```
-./bin/dev
+rspec ./spec/models
 ```
 
 ### Run rails

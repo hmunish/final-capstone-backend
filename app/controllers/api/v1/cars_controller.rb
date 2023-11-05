@@ -30,8 +30,11 @@ class Api::V1::CarsController < ApplicationController
   end
 
   def destroy
-    @car.destroy
-    head :no_content
+    if @car.destroy
+      render json: @car, head: :no_content
+    else
+      render json: @car.errors, status: :unprocessable_entity
+    end
   end
 
   private
